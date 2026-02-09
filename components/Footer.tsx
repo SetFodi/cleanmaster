@@ -1,6 +1,7 @@
 "use client";
 
 import { useI18n } from "../lib/i18n";
+import Image from "next/image";
 
 export function Footer() {
     const { t } = useI18n();
@@ -10,7 +11,15 @@ export function Footer() {
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                     <div className="col-span-1 md:col-span-2">
-                        <h3 className="text-xl font-bold text-primary mb-4">Fast&Clean</h3>
+                        <div className="mb-4">
+                            <Image
+                                src="/fastandclean.png"
+                                alt="Fast&Clean Logo"
+                                width={150}
+                                height={40}
+                                className="h-10 w-auto"
+                            />
+                        </div>
                         <p className="text-gray-500 dark:text-slate-400 max-w-sm">
                             {t("hero.subtitle")}
                         </p>

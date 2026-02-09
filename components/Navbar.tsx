@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X, Phone, Globe, Moon, Sun } from "lucide-react";
 import { useI18n, Language } from "../lib/i18n";
@@ -23,8 +24,15 @@ export function Navbar() {
         <nav className="fixed w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md z-50 border-b border-gray-100 dark:border-gray-800 transition-colors">
             <div className="container mx-auto px-4 h-16 flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="text-2xl font-bold text-primary tracking-tight">
-                    Fast&Clean
+                <Link href="/" className="flex items-center">
+                    <Image
+                        src="/fastandclean.png"
+                        alt="Fast&Clean Logo"
+                        width={180}
+                        height={48}
+                        className="h-12 w-auto"
+                        priority
+                    />
                 </Link>
 
                 {/* Desktop Navigation */}
