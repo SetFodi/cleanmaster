@@ -81,19 +81,35 @@ export function Navbar() {
                     </button>
                 </div>
 
-                {/* Mobile Menu Button */}
-                <div className="md:hidden flex items-center gap-4">
+                {/* Mobile Menu Button & Actions */}
+                <div className="md:hidden flex items-center gap-2">
+                    {/* Compact Language Switcher for Mobile */}
+                    <div className="flex gap-2 mr-2 bg-gray-50 dark:bg-slate-800/50 p-1 rounded-lg border border-gray-100 dark:border-slate-800">
+                        {languages.map((lang) => (
+                            <button
+                                key={lang.code}
+                                onClick={() => setLanguage(lang.code)}
+                                className={`text-xs font-bold px-2 py-1 rounded transition-all ${language === lang.code
+                                    ? "bg-primary text-white shadow-sm"
+                                    : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800"
+                                    }`}
+                            >
+                                {lang.label}
+                            </button>
+                        ))}
+                    </div>
+
                     {/* Theme Toggle Mobile */}
                     <button
                         onClick={toggleTheme}
-                        className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300"
+                        className="p-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300"
                     >
                         {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
                     </button>
 
                     <button
                         onClick={toggleMenu}
-                        className="p-2 text-gray-600 dark:text-gray-300 focus:outline-none"
+                        className="p-1.5 text-gray-600 dark:text-gray-300 focus:outline-none"
                     >
                         {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                     </button>
@@ -132,27 +148,6 @@ export function Navbar() {
                         >
                             {t("nav.contact")}
                         </Link>
-
-                        <div className="h-px bg-gray-100 dark:bg-gray-800 my-2"></div>
-
-                        {/* Language Switcher Mobile */}
-                        <div className="flex items-center gap-4 py-2">
-                            <Globe className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                            <div className="flex gap-2">
-                                {languages.map((lang) => (
-                                    <button
-                                        key={lang.code}
-                                        onClick={() => setLanguage(lang.code)}
-                                        className={`text-sm font-medium px-2 py-1 rounded transition-colors ${language === lang.code
-                                            ? "bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-400"
-                                            : "text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-                                            }`}
-                                    >
-                                        {lang.label}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
                     </div>
                 </div>
             )}
