@@ -7,6 +7,7 @@ import { Calculator, CheckCircle2 } from "lucide-react";
 export function Pricing() {
     const { t, language } = useI18n();
     const [area, setArea] = useState<number | "">("");
+    const [windowArea, setWindowArea] = useState<number | "">("");
     const [serviceType, setServiceType] = useState<"regular" | "deep" | "renovation">("deep");
 
     const prices = {
@@ -16,8 +17,16 @@ export function Pricing() {
     };
 
     const calculatePrice = () => {
-        if (typeof area !== "number") return 0;
-        return (area * prices[serviceType]).toFixed(0);
+        const totalArea = typeof area === "number" ? area : 0;
+        const winArea = typeof windowArea === "number" ? windowArea : 0;
+
+        let total = totalArea * prices[serviceType];
+
+        if (serviceType === "renovation") {
+            total += winArea * 12; // Extra for windows in renovation
+        }
+
+        return total.toFixed(0);
     };
 
     return (
@@ -62,20 +71,40 @@ export function Pricing() {
                             </div>
                         </div>
 
-                        <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-slate-200 mb-3 block">
-                                {t("pricing.area")}
-                            </label>
-                            <div className="relative">
-                                <input
-                                    type="number"
-                                    value={area}
-                                    onChange={(e) => setArea(Number(e.target.value))}
-                                    placeholder="50"
-                                    className="w-full px-6 py-4 text-2xl font-bold text-gray-900 dark:text-white bg-gray-50 dark:bg-slate-700 rounded-xl border-2 border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-600 focus:outline-none transition-all"
-                                />
-                                <Calculator className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 w-6 h-6" />
+                        <div className="grid grid-cols-1 gap-6">
+                            <div>
+                                <label className="block text-sm font-semibold text-gray-700 dark:text-slate-200 mb-3 block">
+                                    {t("pricing.area")}
+                                </label>
+                                <div className="relative">
+                                    <input
+                                        type="number"
+                                        value={area}
+                                        onChange={(e) => setArea(e.target.value === "" ? "" : Number(e.target.value))}
+                                        placeholder="50"
+                                        className="w-full px-6 py-4 text-2xl font-bold text-gray-900 dark:text-white bg-gray-50 dark:bg-slate-700 rounded-xl border-2 border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-600 focus:outline-none transition-all"
+                                    />
+                                    <Calculator className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 w-6 h-6" />
+                                </div>
                             </div>
+
+                            {serviceType === "renovation" && (
+                                <div className="animate-in fade-in slide-in-from-top-4 duration-500">
+                                    <label className="block text-sm font-semibold text-gray-700 dark:text-slate-200 mb-3 block">
+                                        {t("pricing.window_area")} (12 ₾ / m²)
+                                    </label>
+                                    <div className="relative">
+                                        <input
+                                            type="number"
+                                            value={windowArea}
+                                            onChange={(e) => setWindowArea(e.target.value === "" ? "" : Number(e.target.value))}
+                                            placeholder="10"
+                                            className="w-full px-6 py-4 text-2xl font-bold text-gray-900 dark:text-white bg-gray-50 dark:bg-slate-700 rounded-xl border-2 border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-600 focus:outline-none transition-all"
+                                        />
+                                        <Calculator className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 w-6 h-6" />
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
 
@@ -93,7 +122,7 @@ export function Pricing() {
                         <div className="space-y-4 border-t border-white/20 dark:border-slate-700/50 pt-8 relative z-10">
                             <div className="flex items-start gap-3 opacity-90">
                                 <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" />
-                                <span className="text-sm leading-relaxed">{t("pricing.windows_note")}</span>
+                                <span className="text-sm leading-relaxed">{t("hero.eco")} & {t("hero.insured")}</span>
                             </div>
                         </div>
                     </div>

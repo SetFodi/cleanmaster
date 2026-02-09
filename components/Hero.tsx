@@ -9,7 +9,7 @@ export function Hero() {
     const { t, language } = useI18n();
 
     return (
-        <section className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900 pt-16 pb-20 md:pt-24 md:pb-32 transition-colors duration-300">
+        <section className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900 pt-32 pb-20 md:pt-24 md:pb-32 transition-colors duration-300">
             <div className="container mx-auto px-4 relative z-10 text-center md:text-left flex flex-col md:flex-row items-center gap-12">
 
                 {/* Text Content */}
