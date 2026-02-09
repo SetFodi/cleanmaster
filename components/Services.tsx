@@ -19,16 +19,16 @@ export function Services() {
         },
         {
             icon: <Building2 className="w-8 h-8 text-primary" />,
-            title: t("services.commercial"),
-            description: t("services.desc.commercial")
+            title: t("services.renovation"),
+            description: t("services.desc.renovation")
         }
     ];
 
     return (
-        <section id="services" className="py-24 bg-white">
+        <section id="services" className="py-24 bg-white dark:bg-slate-900 transition-colors duration-300">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">{t("services.title")}</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{t("services.title")}</h2>
                     <div className="w-16 h-1 bg-primary mx-auto rounded-full"></div>
                 </div>
 
@@ -36,13 +36,13 @@ export function Services() {
                     {services.map((service, index) => (
                         <div
                             key={index}
-                            className="group p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                            className="group p-8 rounded-2xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-all"
                         >
-                            <div className="w-16 h-16 rounded-2xl bg-primary-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <div className="w-16 h-16 rounded-2xl bg-primary-50 dark:bg-slate-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                 {service.icon}
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                            <p className="text-gray-500 leading-relaxed">
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{service.title}</h3>
+                            <p className="text-gray-500 dark:text-slate-400 leading-relaxed">
                                 {service.description} {/* Note: Descriptions should ideally be translated too, added locally for now */}
                             </p>
                         </div>

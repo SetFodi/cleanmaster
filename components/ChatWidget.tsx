@@ -31,8 +31,8 @@ export function ChatWidget() {
                         <div className="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-gray-600 max-w-[85%]">
                             Hello! 👋 How can we help you with your cleaning needs today?
                         </div>
-                        <div className="text-center text-xs text-gray-400 mt-auto">
-                            Powered by CleanMaster
+                        <div className="bg-gray-50 p-3 text-center text-xs text-gray-400 border-t border-gray-100">
+                            Powered by Fast&Clean
                         </div>
                     </div>
                     <div className="p-3 bg-white border-t border-gray-100">

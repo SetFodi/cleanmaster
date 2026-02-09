@@ -9,22 +9,22 @@ export function Hero() {
     const { t, language } = useI18n();
 
     return (
-        <section className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-100 pt-16 pb-20 md:pt-24 md:pb-32">
+        <section className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900 pt-16 pb-20 md:pt-24 md:pb-32 transition-colors duration-300">
             <div className="container mx-auto px-4 relative z-10 text-center md:text-left flex flex-col md:flex-row items-center gap-12">
 
                 {/* Text Content */}
                 <div className="md:w-1/2 flex flex-col items-center md:items-start">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-primary-700 text-sm font-semibold mb-6 border border-primary-200 shadow-sm animate-in fade-in slide-in-from-bottom-4 duration-700">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-slate-800 text-primary-700 dark:text-primary-300 text-sm font-semibold mb-6 border border-primary-200 dark:border-primary-900 shadow-sm animate-in fade-in slide-in-from-bottom-4 duration-700">
                         <Sparkles className="w-4 h-4" />
-                        <span>#1 Cleaning Service in Tbilisi</span>
+                        <span>{t("hero.badge.text")}</span>
                     </div>
 
-                    <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight animate-in fade-in slide-in-from-bottom-6 duration-1000 fill-mode-both delay-100">
+                    <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight animate-in fade-in slide-in-from-bottom-6 duration-1000 fill-mode-both delay-100">
                         {t("hero.title")}
-                        <span className="text-primary-600">.</span>
+                        <span className="text-primary-600 dark:text-primary-400">.</span>
                     </h1>
 
-                    <p className="text-lg md:text-xl text-slate-600 mb-8 max-w-xl leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 fill-mode-both delay-200">
+                    <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-xl leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 fill-mode-both delay-200">
                         {t("hero.subtitle")}
                     </p>
 
@@ -37,27 +37,27 @@ export function Hero() {
                         </Link>
                         <Link
                             href="/contact"
-                            className="px-8 py-4 bg-white text-primary-700 text-lg rounded-full font-bold border-2 border-primary-100 hover:border-primary-200 hover:bg-primary-50 transition-all hover:-translate-y-1 shadow-sm text-center"
+                            className="px-8 py-4 bg-white dark:bg-slate-800 text-primary-700 dark:text-primary-300 text-lg rounded-full font-bold border-2 border-primary-100 dark:border-primary-900 hover:border-primary-200 hover:bg-primary-50 dark:hover:bg-slate-700 transition-all hover:-translate-y-1 shadow-sm text-center"
                         >
                             {t("nav.contact")}
                         </Link>
                     </div>
 
-                    <div className="mt-8 flex items-center gap-6 text-sm text-slate-500 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
+                    <div className="mt-8 flex items-center gap-6 text-sm text-slate-500 dark:text-slate-400 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
                         <div className="flex items-center gap-2">
-                            <CheckCircle className="w-5 h-5 text-primary-600" />
-                            <span>{language === 'ka' ? "ეკო-მეგობრული" : "Eco-friendly"}</span>
+                            <CheckCircle className="w-5 h-5 text-primary-600 dark:text-primary-400" />
+                            <span>{t("hero.eco")}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                            <CheckCircle className="w-5 h-5 text-primary-600" />
-                            <span>{language === 'ka' ? "დაზღვეული" : "Fully Insured"}</span>
+                            <CheckCircle className="w-5 h-5 text-primary-600 dark:text-primary-400" />
+                            <span>{t("hero.insured")}</span>
                         </div>
                     </div>
                 </div>
 
                 {/* Hero Image */}
                 <div className="md:w-1/2 relative animate-in fade-in slide-in-from-right-8 duration-1000 delay-300">
-                    <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary-900/10 border-4 border-white">
+                    <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary-900/10 border-4 border-white dark:border-slate-800">
                         <Image
                             src="/hero-new.png"
                             alt="Clean bright living room"
@@ -70,14 +70,14 @@ export function Hero() {
                     </div>
 
                     {/* Floating Badge */}
-                    <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 hidden md:block animate-bounce duration-[3000ms]">
+                    <div className="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-xl border border-gray-100 dark:border-slate-700 hidden md:block animate-bounce duration-[3000ms]">
                         <div className="flex items-center gap-3">
-                            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                            <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-600 dark:text-green-400">
                                 <Sparkles className="w-6 h-6" />
                             </div>
                             <div>
-                                <p className="font-bold text-gray-900">{t("hero.badge.label")}</p>
-                                <p className="text-xs text-gray-500">{t("hero.badge.satisfaction")}</p>
+                                <p className="font-bold text-gray-900 dark:text-white">{t("hero.badge.label")}</p>
+                                <p className="text-xs text-gray-500 dark:text-gray-400">{t("hero.badge.satisfaction")}</p>
                             </div>
                         </div>
                     </div>

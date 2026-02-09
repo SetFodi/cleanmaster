@@ -12,9 +12,7 @@ export default function ContactPage() {
                 <div className="text-center mb-16">
                     <h1 className="text-4xl font-bold text-gray-900 mb-4">{t("contact.title")}</h1>
                     <p className="text-gray-500 max-w-xl mx-auto">
-                        {language === 'ka'
-                            ? "მზად ხართ სისუფთავისთვის? დაგვიკავშირდით ან შეავსეთ ფორმა."
-                            : "Ready for a clean start? Contact us or fill out the form."}
+                        {t("contact.msg")}
                     </p>
                 </div>
 
@@ -22,7 +20,7 @@ export default function ContactPage() {
                     {/* Contact Info */}
                     <div className="bg-primary-50 p-8 rounded-3xl">
                         <h3 className="text-2xl font-bold text-gray-900 mb-8">
-                            {language === 'ka' ? "საკონტაქტო ინფო" : "Contact Information"}
+                            {t("contact.info")}
                         </h3>
 
                         <div className="space-y-6">
@@ -49,7 +47,7 @@ export default function ContactPage() {
                                     <p className="text-sm text-gray-400 font-medium uppercase tracking-wider mb-1">
                                         {t("contact.email")}
                                     </p>
-                                    <p className="text-xl font-bold text-gray-900">info@cleanmaster.ge</p>
+                                    <p className="text-xl font-bold text-gray-900">info@fastandclean.ge</p>
                                 </div>
                             </div>
 
@@ -59,9 +57,9 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <p className="text-sm text-gray-400 font-medium uppercase tracking-wider mb-1">
-                                        {language === 'ka' ? "მისამართი" : "Address"}
+                                        {t("contact.address")}
                                     </p>
-                                    <p className="text-xl font-bold text-gray-900">Tbilisi, Georgia</p>
+                                    <p className="text-xl font-bold text-gray-900">Batumi, Georgia</p>
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,8 @@
 @import "tailwindcss";
+@variant dark ([data-theme='dark'] &);
 
 :root {
+  color-scheme: light;
   /* Calm Blue - Primary */
   --color-primary-50: #f0f9ff;
   --color-primary-100: #e0f2fe;
@@ -17,6 +19,28 @@
   /* Slate 700 */
   --muted: #64748b;
   /* Slate 500 */
+}
+
+/* Dark Mode Variables */
+[data-theme='dark'] {
+  color-scheme: dark;
+  --background: #0f172a;
+  /* Slate 900 */
+  --foreground: #f8fafc;
+  /* Slate 50 */
+  --muted: #94a3b8;
+  /* Slate 400 */
+
+  --color-primary-50: #082f49;
+  /* Darker Blue */
+  --color-primary-100: #0c4a6e;
+  --color-primary-200: #075985;
+  --color-primary-300: #0369a1;
+  --color-primary-400: #0284c7;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #38bdf8;
+  /* Lighter Blue for Dark Mode */
+  --color-primary-700: #7dd3fc;
 }
 
 @theme inline {
