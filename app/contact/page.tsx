@@ -32,7 +32,7 @@ export default function ContactPage() {
                                     <p className="text-sm text-gray-400 font-medium uppercase tracking-wider mb-1">
                                         {t("contact.phone")}
                                     </p>
-                                    <p className="text-xl font-bold text-gray-900">+995 555 00 00 00</p>
+                                    <p className="text-xl font-bold text-gray-900">558 23 44 55 | 558 25 44 55</p>
                                     <p className="text-gray-500 text-sm mt-1">
                                         {language === 'ka' ? "ორშაბათი - კვირა (09:00 - 21:00)" : "Mon - Sun (09:00 - 21:00)"}
                                     </p>

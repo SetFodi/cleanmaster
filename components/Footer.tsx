@@ -35,7 +35,7 @@ export function Footer() {
                     <div>
                         <h4 className="font-semibold text-gray-900 dark:text-white mb-4">{t("nav.contact")}</h4>
                         <ul className="space-y-2 text-sm text-gray-500 dark:text-slate-400">
-                            <li>{t("contact.phone")}: +995 555 00 00 00</li>
+                            <li>{t("contact.phone")}: 558 23 44 55, 558 25 44 55</li>
                             <li>{t("contact.email")}: info@fastandclean.ge</li>
                         </ul>
                     </div>
