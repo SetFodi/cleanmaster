@@ -2,9 +2,13 @@
 
 import { useI18n } from "../../lib/i18n";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { WhatsAppIcon } from "../../components/WhatsAppIcon";
 
 export default function ContactPage() {
     const { t, language } = useI18n();
+    const whatsappNumber = "995558234455";
+    const whatsappMessage = language === "ka" ? "გამარჯობა, მაინტერესებს დასუფთავების სერვისი." : "Hello, I am interested in your cleaning service.";
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
     return (
         <div className="bg-white min-h-screen pt-24 pb-24">
@@ -65,47 +69,30 @@ export default function ContactPage() {
                         </div>
                     </div>
 
-                    {/* Contact Form */}
-                    <form className="bg-white rounded-3xl border border-gray-100 p-8 shadow-xl" onSubmit={(e) => e.preventDefault()}>
+                    <div className="bg-white rounded-3xl border border-gray-100 p-8 shadow-xl">
                         <div className="space-y-6">
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    {language === 'ka' ? "სახელი" : "Name"}
-                                </label>
-                                <input
-                                    type="text"
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                                    placeholder={language === 'ka' ? "თქვენი სახელი" : "Your Name"}
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    {language === 'ka' ? "ტელეფონი" : "Phone Number"}
-                                </label>
-                                <input
-                                    type="tel"
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                                    placeholder="+995 5xx xx xx xx"
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    {language === 'ka' ? "შეტყობინება" : "Message"}
-                                </label>
-                                <textarea
-                                    rows={4}
-                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
-                                    placeholder={language === 'ka' ? "რისი დალაგება გსურთ?" : "What would you like to clean?"}
-                                ></textarea>
-                            </div>
-
-                            <button className="w-full py-4 bg-primary text-white font-bold rounded-xl shadow-lg hover:bg-primary-700 transition-colors">
-                                {language === 'ka' ? "გაგზავნა" : "Send Message"}
-                            </button>
+                            <h3 className="text-2xl font-bold text-gray-900">
+                                {language === "ka" ? "მოგვწერეთ WhatsApp-ზე" : "Chat with us on WhatsApp"}
+                            </h3>
+                            <p className="text-gray-500">
+                                {language === "ka"
+                                    ? "დააჭირეთ ღილაკს და პირდაპირ გაგიხსნით ჩატს ჩვენს გუნდთან."
+                                    : "Tap the button below to open a direct chat with our team."}
+                            </p>
+                            <a
+                                href={whatsappLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full py-4 bg-[#25D366] text-white font-bold rounded-xl shadow-lg hover:bg-[#1ebe5d] transition-colors inline-flex items-center justify-center gap-3"
+                            >
+                                <WhatsAppIcon className="w-5 h-5" />
+                                <span>{language === "ka" ? "WhatsApp ჩატის გახსნა" : "Open WhatsApp Chat"}</span>
+                            </a>
+                            <p className="text-sm text-gray-400">
+                                {language === "ka" ? "ნომერი: 558 23 44 55" : "Number: 558 23 44 55"}
+                            </p>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
